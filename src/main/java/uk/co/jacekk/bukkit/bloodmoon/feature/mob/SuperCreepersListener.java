@@ -23,10 +23,8 @@ public class SuperCreepersListener implements Listener {
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
     public void onExplosionPrime(ExplosionPrimeEvent event) {
         if (event.getEntityType() == EntityType.CREEPER) {
-
-                event.setRadius(4);
-                event.setFire(true);
-
+            event.setRadius(8);
+            event.setFire(true);
         }
     }
 

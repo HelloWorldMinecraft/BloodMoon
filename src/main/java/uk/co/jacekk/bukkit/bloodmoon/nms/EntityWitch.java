@@ -1,6 +1,7 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
 import net.minecraft.server.v1_15_R1.EntityTypes;
+import net.minecraft.server.v1_15_R1.GenericAttributes;
 import net.minecraft.server.v1_15_R1.World;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -24,6 +25,13 @@ public class EntityWitch extends net.minecraft.server.v1_15_R1.EntityWitch {
 
         this.plugin = (BloodMoon) gPlugin;
         this.bloodMoonEntity = new BloodMoonEntityGeneric(this.plugin, this, BloodMoonEntityType.WITCH);
+    }
+
+    protected void initAttributes() {
+        super.initAttributes();
+        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(52D);
+        this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.4D);
+        this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(70D);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
 import net.minecraft.server.v1_15_R1.EntityTypes;
+import net.minecraft.server.v1_15_R1.GenericAttributes;
 import net.minecraft.server.v1_15_R1.World;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -26,6 +27,17 @@ public class EntityGhast extends net.minecraft.server.v1_15_R1.EntityGhast {
 
         this.plugin = (BloodMoon) gPlugin;
         this.bloodMoonEntity = new BloodMoonEntityGhast(this.plugin, this, BloodMoonEntityType.GHAST);
+    }
+
+    @Override
+    protected void initAttributes() {
+        super.initAttributes();
+        this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(200.0D);
+    }
+
+    @Override
+    protected void initPathfinder() {
+        super.initPathfinder();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
 import net.minecraft.server.v1_15_R1.EntityTypes;
+import net.minecraft.server.v1_15_R1.GenericAttributes;
 import net.minecraft.server.v1_15_R1.World;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -19,12 +20,21 @@ public class EntitySpider extends net.minecraft.server.v1_15_R1.EntitySpider {
         Plugin gPlugin = Bukkit.getPluginManager().getPlugin("BloodMoon");
 
         if (!(gPlugin instanceof BloodMoon)) {
-
-this.killEntity();            return;
+            this.killEntity();
+            return;
         }
 
         this.plugin = (BloodMoon) gPlugin;
         this.bloodMoonEntity = new BloodMoonEntitySpider(this.plugin, this, BloodMoonEntityType.SPIDER);
+    }
+
+    @Override
+    protected void initAttributes() {
+        super.initAttributes();
+        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(32.0D);
+        this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.3);
+        this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(4);
+        this.getAttributeInstance(GenericAttributes.ARMOR).setValue(8);
     }
 
     @Override

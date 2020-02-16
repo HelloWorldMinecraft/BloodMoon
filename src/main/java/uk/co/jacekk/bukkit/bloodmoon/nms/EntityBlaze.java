@@ -1,6 +1,7 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
 import net.minecraft.server.v1_15_R1.EntityTypes;
+import net.minecraft.server.v1_15_R1.GenericAttributes;
 import net.minecraft.server.v1_15_R1.World;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -25,6 +26,15 @@ public class EntityBlaze extends net.minecraft.server.v1_15_R1.EntityBlaze {
 
         this.plugin = (BloodMoon) gPlugin;
         this.bloodMoonEntity = new BloodMoonEntityGeneric(this.plugin, this, BloodMoonEntityType.BLAZE);
+    }
+
+    @Override
+    protected void initAttributes() {
+        super.initAttributes();
+        this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(16.0D);
+        this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.3D);
+        this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(100D);
+        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(50D);
     }
 
     @Override

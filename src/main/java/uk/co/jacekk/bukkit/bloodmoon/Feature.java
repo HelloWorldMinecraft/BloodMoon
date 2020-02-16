@@ -9,11 +9,9 @@ public enum Feature {
 	
 	// Mob features
 	SUPER_CREEPERS(SuperCreepersListener.class),
-	ZOMBIE_ARMOR(ZombieArmorListener.class),
-	ZOMBIE_WEAPON(ZombieWeaponListener.class),
+	EQUIPMENT(EquipmentListener.class),
 	DAYLIGHT_PROOF_MOBS(DaylightProofMobsListener.class),
 	FIRE_ARROWS(FireArrowsListener.class),
-	MAX_HEALTH(MaxHealthListener.class),
 	MORE_DROPS(MoreDropsListener.class),
 	MORE_EXP(MoreExpListener.class),
 	BREAK_BLOCKS(null), // handled in BloodMoonEntity*
