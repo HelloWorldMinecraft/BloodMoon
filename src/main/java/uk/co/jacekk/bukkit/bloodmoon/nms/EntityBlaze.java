@@ -1,45 +1,40 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
-import net.minecraft.server.v1_8_R3.World;
+import net.minecraft.server.v1_15_R1.EntityTypes;
+import net.minecraft.server.v1_15_R1.World;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftBlaze;
 import org.bukkit.plugin.Plugin;
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
-import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityBlaze;
+import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityGeneric;
 import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityType;
 
-public class EntityBlaze extends net.minecraft.server.v1_8_R3.EntityBlaze {
+public class EntityBlaze extends net.minecraft.server.v1_15_R1.EntityBlaze {
 
     private BloodMoon plugin;
-    private BloodMoonEntityBlaze bloodMoonEntity;
+    private BloodMoonEntityGeneric bloodMoonEntity;
 
     public EntityBlaze(World world) {
-        super(world);
+        super(EntityTypes.BLAZE, world);
 
         Plugin gPlugin = Bukkit.getPluginManager().getPlugin("BloodMoon");
 
-        if (gPlugin == null || !(gPlugin instanceof BloodMoon)) {
-            this.world.removeEntity(this);
+        if (!(gPlugin instanceof BloodMoon)) {
+            this.killEntity();
             return;
         }
 
         this.plugin = (BloodMoon) gPlugin;
-
-        this.bukkitEntity = new CraftBlaze((CraftServer) this.plugin.getServer(), this);
-        this.bloodMoonEntity = new BloodMoonEntityBlaze(this.plugin, this, BloodMoonEntityType.BLAZE);
+        this.bloodMoonEntity = new BloodMoonEntityGeneric(this.plugin, this, BloodMoonEntityType.BLAZE);
     }
 
     @Override
-    public boolean bM() {
+    public void tick() {
         try {
             this.bloodMoonEntity.onTick();
-            super.bL();
+            super.tick();
         } catch (Exception e) {
             plugin.getLogger().warning("Exception caught while ticking entity");
             e.printStackTrace();
         }
-        return true;
     }
-
 }

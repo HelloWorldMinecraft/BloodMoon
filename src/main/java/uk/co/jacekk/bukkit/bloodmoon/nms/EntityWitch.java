@@ -1,45 +1,39 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
-import net.minecraft.server.v1_8_R3.World;
+import net.minecraft.server.v1_15_R1.EntityTypes;
+import net.minecraft.server.v1_15_R1.World;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftWitch;
 import org.bukkit.plugin.Plugin;
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
+import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityGeneric;
+import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityLiving;
 import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityType;
-import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityWitch;
-
-public class EntityWitch extends net.minecraft.server.v1_8_R3.EntityWitch {
-
+public class EntityWitch extends net.minecraft.server.v1_15_R1.EntityWitch {
     private BloodMoon plugin;
-    private BloodMoonEntityWitch bloodMoonEntity;
+    private BloodMoonEntityLiving bloodMoonEntity;
 
     public EntityWitch(World world) {
-        super(world);
+        super(EntityTypes.WITCH, world);
 
         Plugin gPlugin = Bukkit.getPluginManager().getPlugin("BloodMoon");
 
-        if (gPlugin == null || !(gPlugin instanceof BloodMoon)) {
-            this.world.removeEntity(this);
+        if (!(gPlugin instanceof BloodMoon)) {
+            this.killEntity();
             return;
         }
 
         this.plugin = (BloodMoon) gPlugin;
-
-        this.bukkitEntity = new CraftWitch((CraftServer) this.plugin.getServer(), this);
-        this.bloodMoonEntity = new BloodMoonEntityWitch(this.plugin, this, BloodMoonEntityType.WITCH);
+        this.bloodMoonEntity = new BloodMoonEntityGeneric(this.plugin, this, BloodMoonEntityType.WITCH);
     }
 
     @Override
-    public boolean bM() {
+    public void tick() {
         try {
             this.bloodMoonEntity.onTick();
-            super.bL();
+            super.tick();
         } catch (Exception e) {
             plugin.getLogger().warning("Exception caught while ticking entity");
             e.printStackTrace();
         }
-        return true;
     }
-
 }

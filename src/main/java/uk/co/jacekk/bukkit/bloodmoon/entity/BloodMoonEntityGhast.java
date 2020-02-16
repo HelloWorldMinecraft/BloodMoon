@@ -1,6 +1,6 @@
 package uk.co.jacekk.bukkit.bloodmoon.entity;
 
-import net.minecraft.server.v1_8_R3.EntityLiving;
+import net.minecraft.server.v1_15_R1.EntityLiving;
 
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
 
@@ -10,4 +10,8 @@ public class BloodMoonEntityGhast extends BloodMoonEntityLiving {
         super(plugin, nmsEntity, type);
     }
 
+    @Override
+    public void onTick() {
+        super.onTick();
+    }
 }

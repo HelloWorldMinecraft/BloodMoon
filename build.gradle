@@ -1,0 +1,11 @@
+version = "1.0.0"
+
+apply from: rootProject.file("../plugin.gradle").exists() ? rootProject.file("../plugin.gradle") : "https://raw.githubusercontent.com/HelloWorldMinecraft/BuildSystem/master/plugin.gradle"
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+dependencies {
+    compile "org.spigotmc:spigot:1.15.2-R0.1-SNAPSHOT"
+}
