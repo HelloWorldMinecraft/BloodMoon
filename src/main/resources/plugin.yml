@@ -1,8 +1,8 @@
-name: "${project.name}"
-version: "${project.version}"
+name: ${project.name}
+version: ${project.version}
 main: "uk.co.jacekk.bukkit.bloodmoon.BloodMoon"
 load: STARTUP
-api-version: 1.15
+api-version: ${project.apiversion}
 
 permissions:
   bloodmoon.reload:
