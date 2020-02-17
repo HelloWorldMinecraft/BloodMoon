@@ -1,7 +1,6 @@
 package uk.co.jacekk.bukkit.bloodmoon.entity;
 
-import net.minecraft.server.v1_15_R1.EntityHuman;
-import net.minecraft.server.v1_15_R1.EntityMonster;
+import net.minecraft.server.v1_15_R1.*;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -14,6 +13,7 @@ import org.bukkit.event.entity.EntityChangeBlockEvent;
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
 
 import java.util.Collections;
+import java.util.Random;
 
 public abstract class BloodMoonEntityMonster extends BloodMoonEntityLiving {
 
@@ -54,4 +54,21 @@ public abstract class BloodMoonEntityMonster extends BloodMoonEntityLiving {
             this.attemptBreakBlock(block);
         }
     }
+    /*
+    public static boolean lightLevelLowEnough(GeneratorAccess var0, BlockPosition position, Random random) {
+        /*if (var0.getBrightness(EnumSkyBlock.SKY, position) > random.nextInt(32)) {
+            return false;
+        } else {
+            int blockBrightness = var0.getBrightness(EnumSkyBlock.BLOCK, position);
+            System.out.println("DC " + blockBrightness + " at y " + position.getY());
+            return blockBrightness <= random.nextInt(20);
+        }* /
+        return true;
+    }
+
+    public static boolean canSpawn(EntityTypes<? extends EntityInsentient> var0, GeneratorAccess var1, EnumMobSpawn var2, BlockPosition var3, Random var4) {
+        return var1.getDifficulty() != EnumDifficulty.PEACEFUL && lightLevelLowEnough(var1, var3, var4) && EntityMonster.a(var0, var1, var2, var3, var4);
+    }
+    */
 }
+

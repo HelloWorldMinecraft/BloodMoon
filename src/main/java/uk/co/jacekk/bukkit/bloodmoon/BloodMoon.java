@@ -1,5 +1,6 @@
 package uk.co.jacekk.bukkit.bloodmoon;
 
+import net.minecraft.server.v1_15_R1.WorldServer;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import org.bukkit.entity.Entity;

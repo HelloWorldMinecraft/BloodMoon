@@ -9,29 +9,29 @@ import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
+import java.util.Map;
 
 public enum BloodMoonEntityType {
 
-    CREEPER(EntityType.CREEPER, uk.co.jacekk.bukkit.bloodmoon.nms.EntityCreeper.class),
-    ENDERMAN(EntityType.ENDERMAN, uk.co.jacekk.bukkit.bloodmoon.nms.EntityEnderman.class),
-    SKELETON(EntityType.SKELETON, uk.co.jacekk.bukkit.bloodmoon.nms.EntitySkeleton.class),
-    SPIDER(EntityType.SPIDER, uk.co.jacekk.bukkit.bloodmoon.nms.EntitySpider.class),
-    ZOMBIE(EntityType.ZOMBIE, uk.co.jacekk.bukkit.bloodmoon.nms.EntityZombie.class),
-    GHAST(EntityType.GHAST, uk.co.jacekk.bukkit.bloodmoon.nms.EntityGhast.class),
-    BLAZE(EntityType.BLAZE, uk.co.jacekk.bukkit.bloodmoon.nms.EntityBlaze.class),
-    WITCH(EntityType.WITCH, uk.co.jacekk.bukkit.bloodmoon.nms.EntityWitch.class);
+    CREEPER(EntityTypes.CREEPER, uk.co.jacekk.bukkit.bloodmoon.nms.EntityCreeper.class),
+    ENDERMAN(EntityTypes.ENDERMAN, uk.co.jacekk.bukkit.bloodmoon.nms.EntityEnderman.class),
+    SKELETON(EntityTypes.SKELETON, uk.co.jacekk.bukkit.bloodmoon.nms.EntitySkeleton.class),
+    SPIDER(EntityTypes.SPIDER, uk.co.jacekk.bukkit.bloodmoon.nms.EntitySpider.class),
+    ZOMBIE(EntityTypes.ZOMBIE, uk.co.jacekk.bukkit.bloodmoon.nms.EntityZombie.class),
+    GHAST(EntityTypes.GHAST, uk.co.jacekk.bukkit.bloodmoon.nms.EntityGhast.class),
+    BLAZE(EntityTypes.BLAZE, uk.co.jacekk.bukkit.bloodmoon.nms.EntityBlaze.class),
+    WITCH(EntityTypes.WITCH, uk.co.jacekk.bukkit.bloodmoon.nms.EntityWitch.class);
 
-    private final EntityType entityType;
+    private final EntityTypes entityType;
     private final Class<? extends EntityInsentient> bloodMoonClass;
 
     private static boolean registered = false;
 
-    private BloodMoonEntityType(EntityType entityType, Class<? extends EntityInsentient> bloodMoonClass) {
+    private BloodMoonEntityType(EntityTypes entityType, Class<? extends EntityInsentient> bloodMoonClass) {
         this.entityType = entityType;
         this.bloodMoonClass = bloodMoonClass;
     }
 
-    @SuppressWarnings("unchecked")
     public static void registerEntities() {
         if (registered) {
             throw new RuntimeException("Already registered.");
@@ -39,6 +39,7 @@ public enum BloodMoonEntityType {
 
         for (BloodMoonEntityType type : values()) {
             try {
+                //Replace mob spawn code
                 EntityTypes<?> types = (EntityTypes<?>) EntityTypes.class.getField(type.name()).get(null);
                 Field field = types.getClass().getDeclaredField("ba");
                 field.setAccessible(true);
@@ -64,12 +65,6 @@ public enum BloodMoonEntityType {
 
         registered = true;
     }
-
-
-    public EntityType getEntityType() {
-        return this.entityType;
-    }
-
 
     public Class<? extends EntityInsentient> getBloodMoonClass() {
         return this.bloodMoonClass;

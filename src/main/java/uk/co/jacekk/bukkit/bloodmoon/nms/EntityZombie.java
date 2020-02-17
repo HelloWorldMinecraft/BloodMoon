@@ -28,7 +28,6 @@ public class EntityZombie extends net.minecraft.server.v1_15_R1.EntityZombie {
 
         this.plugin = (BloodMoon) gPlugin;
         this.bloodMoonEntity = new BloodMoonEntityGeneric(this.plugin, this, BloodMoonEntityType.ZOMBIE);
-
     }
 
     protected void initAttributes() {

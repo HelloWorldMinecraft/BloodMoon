@@ -2,6 +2,7 @@ package uk.co.jacekk.bukkit.bloodmoon.feature.spawning;
 
 import java.util.Random;
 
+import org.bukkit.craftbukkit.v1_15_R1.util.CraftMagicNumbers;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -24,7 +25,7 @@ public final class MoreSpawningListener implements Listener {
         EntityType type = event.getEntityType();
         for (int i = 0; i < 5; ++i) {
             for (BloodMoonEntityType bloodMoonEntity : BloodMoonEntityType.values()) {
-                if (type == bloodMoonEntity.getEntityType()) {
+                if (type == EntityType.valueOf(bloodMoonEntity.name())) {
                     bloodMoonEntity.spawnEntity(event.getLocation().add((random.nextDouble() * 3) - 1.5, (random.nextDouble() * 3) - 1.5, (random.nextDouble() * 3) - 1.5));
                     return;
                 }
