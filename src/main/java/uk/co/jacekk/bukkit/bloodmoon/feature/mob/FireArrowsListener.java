@@ -18,13 +18,8 @@ public class FireArrowsListener implements Listener {
     public void onProjectileHit(ProjectileHitEvent event) {
         Projectile projectile = event.getEntity();
 
-        LivingEntity shooter = (LivingEntity) projectile.getShooter();
-        if (shooter.getType() != EntityType.SKELETON) { //Not sure why this is here, or why fire arrows even work with it here
-            return;
-        }
-
-        if (((CraftEntity) shooter).getHandle() instanceof EntitySkeleton && projectile.getFireTicks() > 0) {
-            //if (shooter != null && ((CraftEntity)shooter).getHandle() instanceof EntitySkeleton && projectile.getFireTicks() > 0){
+        if (!(projectile.getShooter() instanceof LivingEntity)) return;
+        if (projectile.getFireTicks() > 0) {
             Block block = projectile.getWorld().getBlockAt(projectile.getLocation());
             if (block.getType() == Material.AIR) {
                 block.setType(Material.FIRE);
