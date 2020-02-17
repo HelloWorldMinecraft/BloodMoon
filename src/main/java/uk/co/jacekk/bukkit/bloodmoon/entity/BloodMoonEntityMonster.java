@@ -17,9 +17,9 @@ import java.util.Random;
 
 public abstract class BloodMoonEntityMonster extends BloodMoonEntityLiving {
 
-    protected EntityMonster nmsEntity;
+    protected EntityInsentient nmsEntity;
 
-    public BloodMoonEntityMonster(BloodMoon plugin, EntityMonster nmsEntity, BloodMoonEntityType type) {
+    public BloodMoonEntityMonster(BloodMoon plugin, EntityInsentient nmsEntity, BloodMoonEntityType type) {
         super(plugin, nmsEntity, type);
 
         this.nmsEntity = nmsEntity;

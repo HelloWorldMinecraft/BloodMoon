@@ -19,6 +19,7 @@ public enum Feature {
 	ARROW_RATE(null), // handled in BloodMoonPathfinderGoalArrowAttack
 	MOVEMENT_SPEED(MovementSpeedListener.class),
 
+	PHANTOM_DROPS(PhantomDropListener.class),
 	MORE_SPAWNING(MoreSpawningListener.class),
 	// Player features
 	SWORD_DAMAGE(SwordDamageListener.class);

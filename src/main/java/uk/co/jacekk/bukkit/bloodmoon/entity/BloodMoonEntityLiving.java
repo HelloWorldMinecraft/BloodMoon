@@ -14,11 +14,7 @@ import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
 
 public abstract class BloodMoonEntityLiving {
 
-    private static final UUID maxHealthUID = UUID.fromString("f8b0a945-2d6a-4bdb-9a6f-59c285bf1e5d");
     private static final UUID followRangeUID = UUID.fromString("1737400d-3c18-41ba-8314-49a158481e1e");
-    private static final UUID knockbackResistanceUID = UUID.fromString("8742c557-fcd5-4079-a462-b58db99b0f2c");
-    private static final UUID movementSpeedUID = UUID.fromString("206a89dc-ae78-4c4d-b42c-3b31db3f5a7c");
-    private static final UUID attackDamageUID = UUID.fromString("7bbe3bb1-079d-4150-ac6f-669e71550776");
 
     protected BloodMoon plugin;
     protected EntityLiving nmsEntity;
@@ -50,28 +46,6 @@ public abstract class BloodMoonEntityLiving {
         attributes.addModifier(modifier);
     }
 
-    public void clearFollowRangeMultiplier() {
-        AttributeInstance attributes = this.nmsEntity.getAttributeInstance(GenericAttributes.FOLLOW_RANGE);
-        AttributeModifier modifier = new AttributeModifier(followRangeUID, "BloodMoon follow range multiplier", 1.0d, AttributeModifier.Operation.MULTIPLY_BASE);
-
-        attributes.removeModifier(modifier);
-    }
-
-    public void setKnockbackResistanceMultiplier(double multiplier) {
-        AttributeInstance attributes = this.nmsEntity.getAttributeInstance(GenericAttributes.KNOCKBACK_RESISTANCE);
-		AttributeModifier modifier = new AttributeModifier(knockbackResistanceUID, "BloodMoon knockback resistance multiplier", multiplier, AttributeModifier.Operation.MULTIPLY_BASE);
-
-        attributes.removeModifier(modifier);
-        attributes.addModifier(modifier);
-    }
-
-    public void clearKnockbackResistanceMultiplier() {
-        AttributeInstance attributes = this.nmsEntity.getAttributeInstance(GenericAttributes.KNOCKBACK_RESISTANCE);
-        AttributeModifier modifier = new AttributeModifier(knockbackResistanceUID, "BloodMoon knockback resistance multiplier", 1.0d, AttributeModifier.Operation.MULTIPLY_BASE);
-
-        attributes.removeModifier(modifier);
-    }
-
     public void setSpeedMultiplier(double multiplier) {
         try {
             AttributeInstance theAttribute = this.nmsEntity.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED);
@@ -94,32 +68,5 @@ public abstract class BloodMoonEntityLiving {
         //attributes.b(modifier);
     }
 
-    public void clearSpeedMultiplier() {
-        AttributeInstance attributes = this.nmsEntity.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED);
-        AttributeModifier modifier = new AttributeModifier(movementSpeedUID, "BloodMoon movement speed multiplier", 1.0d, AttributeModifier.Operation.MULTIPLY_BASE);
-
-        attributes.addModifier(modifier);
-    }
-
-    //public abstract void onTick();
-    public void onTick() {
-
-    }
-
-    public World getBukkitWorld() {
-        return nmsEntity.getWorld().getWorld();
-    }
-
-    public String getWorldName() {
-        return nmsEntity.getWorld().getWorld().getName();
-    }
-
-    public Location getLocation() {
-        return bukkitEntity.getLocation();
-    }
-
-    public EntityType getEntityType() {
-        return bukkitEntity.getType();
-    }
-
+    public void onTick() {}
 }

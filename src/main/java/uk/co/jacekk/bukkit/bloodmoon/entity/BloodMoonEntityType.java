@@ -20,6 +20,7 @@ public enum BloodMoonEntityType {
     ZOMBIE(EntityTypes.ZOMBIE, uk.co.jacekk.bukkit.bloodmoon.nms.EntityZombie.class),
     GHAST(EntityTypes.GHAST, uk.co.jacekk.bukkit.bloodmoon.nms.EntityGhast.class),
     BLAZE(EntityTypes.BLAZE, uk.co.jacekk.bukkit.bloodmoon.nms.EntityBlaze.class),
+    PHANTOM(EntityTypes.PHANTOM, uk.co.jacekk.bukkit.bloodmoon.nms.EntityPhantom.class),
     WITCH(EntityTypes.WITCH, uk.co.jacekk.bukkit.bloodmoon.nms.EntityWitch.class);
 
     private final EntityTypes entityType;

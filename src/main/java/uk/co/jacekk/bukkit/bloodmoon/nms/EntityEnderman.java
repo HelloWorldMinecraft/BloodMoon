@@ -32,7 +32,7 @@ public class EntityEnderman extends net.minecraft.server.v1_15_R1.EntityEnderman
     @Override
     protected void initPathfinder() {
         super.initPathfinder();
-        this.targetSelector.a(4, new PathfinderGoalNearestAttackableTarget(this, EntityPlayer.class, true));
+        this.targetSelector.a(0, new PathfinderGoalNearestAttackableTarget(this, EntityPlayer.class, true));
     }
 
     @Override
