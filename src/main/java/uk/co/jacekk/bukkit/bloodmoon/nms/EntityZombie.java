@@ -33,10 +33,10 @@ public class EntityZombie extends net.minecraft.server.v1_15_R1.EntityZombie {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(100D);
-        this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.4D);
+        this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.3D);
         this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(4.0D);
-        this.getAttributeInstance(GenericAttributes.ARMOR).setValue(6.0D);
-        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(40.0D);
+        this.getAttributeInstance(GenericAttributes.ARMOR).setValue(3D);
+        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(25.0D);
     }
 
     @Override

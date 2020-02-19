@@ -1,6 +1,7 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
 import net.minecraft.server.v1_15_R1.EntityTypes;
+import net.minecraft.server.v1_15_R1.GenericAttributes;
 import net.minecraft.server.v1_15_R1.World;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -25,6 +26,15 @@ public class EntityCreeper extends net.minecraft.server.v1_15_R1.EntityCreeper {
 
         this.plugin = (BloodMoon) gPlugin;
         this.bloodMoonEntity = new BloodMoonEntityGeneric(this.plugin, this, BloodMoonEntityType.CREEPER);
+    }
+
+    @Override
+    protected void initAttributes() {
+        super.initAttributes();
+        this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.3D);
+        this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(100D);
+        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(25D);
+        this.getAttributeInstance(GenericAttributes.ARMOR).setValue(6D);
     }
 
     @Override

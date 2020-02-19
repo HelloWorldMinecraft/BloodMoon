@@ -34,7 +34,7 @@ public class EntityBlaze extends net.minecraft.server.v1_15_R1.EntityBlaze {
         this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(16.0D);
         this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.3D);
         this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(100D);
-        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(50D);
+        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(25D);
     }
 
     @Override

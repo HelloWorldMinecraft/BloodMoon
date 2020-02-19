@@ -32,10 +32,10 @@ public class EntityPhantom extends net.minecraft.server.v1_15_R1.EntityPhantom {
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(100D);
-        this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.3D);
-        this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(12.0D);
+        this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.6D);
+        this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(6.0D);
         this.getAttributeInstance(GenericAttributes.ARMOR).setValue(8.0D);
-        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(30.0D);
+        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(10.0D);
     }
 
     @Override

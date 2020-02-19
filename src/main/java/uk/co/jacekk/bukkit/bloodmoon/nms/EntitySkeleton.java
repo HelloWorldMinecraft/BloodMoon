@@ -49,8 +49,8 @@ public class EntitySkeleton extends net.minecraft.server.v1_15_R1.EntitySkeleton
     protected void initAttributes() {
         super.initAttributes();
         this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(70D);
-        this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.25D);
-        this.getAttributeInstance(GenericAttributes.ARMOR).setValue(12.0D);
-        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(36.0D);
+        this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.35D);
+        this.getAttributeInstance(GenericAttributes.ARMOR).setValue(2.0D);
+        this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(18.0D);
     }
 }
