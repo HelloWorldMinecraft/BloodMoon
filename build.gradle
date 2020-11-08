@@ -1,11 +1,25 @@
-version = "1.0.0"
-
-apply from: rootProject.file("../plugin.gradle").exists() ? rootProject.file("../plugin.gradle") : "https://raw.githubusercontent.com/HelloWorldMinecraft/BuildSystem/master/plugin.gradle"
+plugins {
+    id 'java'
+    id 'kr.entree.spigradle' version '2.2.3'
+    id 'idea'
+}
 
 repositories {
-    mavenCentral()
     mavenLocal()
 }
+
 dependencies {
-    compile "org.spigotmc:spigot:1.15.2-R0.1-SNAPSHOT"
+    compileOnly spigotAll('1.16.4')
+}
+
+spigot {
+    authors "Samistine", "Red3842"
+    apiVersion "1.16.4"
+    load STARTUP
+    permissions {
+        "bloodmoon.reload" {
+            defaults "op"
+            description "Allows the player to reload the config files"
+        }
+    }
 }

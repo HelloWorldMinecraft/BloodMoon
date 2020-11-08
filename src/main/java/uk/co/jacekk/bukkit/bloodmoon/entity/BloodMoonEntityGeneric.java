@@ -1,7 +1,7 @@
 package uk.co.jacekk.bukkit.bloodmoon.entity;
 
-import net.minecraft.server.v1_15_R1.EntityInsentient;
-import net.minecraft.server.v1_15_R1.EntityMonster;
+import net.minecraft.server.v1_16_R3.EntityInsentient;
+import net.minecraft.server.v1_16_R3.EntityMonster;
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
 
 public class BloodMoonEntityGeneric extends BloodMoonEntityMonster {

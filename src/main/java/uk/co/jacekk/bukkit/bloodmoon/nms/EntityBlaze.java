@@ -1,15 +1,15 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
-import net.minecraft.server.v1_15_R1.EntityTypes;
-import net.minecraft.server.v1_15_R1.GenericAttributes;
-import net.minecraft.server.v1_15_R1.World;
+import net.minecraft.server.v1_16_R3.EntityTypes;
+import net.minecraft.server.v1_16_R3.GenericAttributes;
+import net.minecraft.server.v1_16_R3.World;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
 import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityGeneric;
 import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityType;
 
-public class EntityBlaze extends net.minecraft.server.v1_15_R1.EntityBlaze {
+public class EntityBlaze extends net.minecraft.server.v1_16_R3.EntityBlaze {
 
     private BloodMoon plugin;
     private BloodMoonEntityGeneric bloodMoonEntity;
@@ -28,9 +28,7 @@ public class EntityBlaze extends net.minecraft.server.v1_15_R1.EntityBlaze {
         this.bloodMoonEntity = new BloodMoonEntityGeneric(this.plugin, this, BloodMoonEntityType.BLAZE);
     }
 
-    @Override
     protected void initAttributes() {
-        super.initAttributes();
         this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(16.0D);
         this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.3D);
         this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(100D);

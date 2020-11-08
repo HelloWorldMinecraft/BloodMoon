@@ -1,15 +1,15 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
-import net.minecraft.server.v1_15_R1.EntityTypes;
-import net.minecraft.server.v1_15_R1.GenericAttributes;
-import net.minecraft.server.v1_15_R1.World;
+import net.minecraft.server.v1_16_R3.EntityTypes;
+import net.minecraft.server.v1_16_R3.GenericAttributes;
+import net.minecraft.server.v1_16_R3.World;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
 import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntitySpider;
 import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityType;
 
-public class EntitySpider extends net.minecraft.server.v1_15_R1.EntitySpider {
+public class EntitySpider extends net.minecraft.server.v1_16_R3.EntitySpider {
 
     private BloodMoon plugin;
     private BloodMoonEntitySpider bloodMoonEntity;
@@ -28,9 +28,7 @@ public class EntitySpider extends net.minecraft.server.v1_15_R1.EntitySpider {
         this.bloodMoonEntity = new BloodMoonEntitySpider(this.plugin, this, BloodMoonEntityType.SPIDER);
     }
 
-    @Override
     protected void initAttributes() {
-        super.initAttributes();
         this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(32.0D);
         this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.3);
         this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(4);

@@ -2,7 +2,7 @@ package uk.co.jacekk.bukkit.bloodmoon.feature.spawning;
 
 import java.util.Random;
 
-import org.bukkit.craftbukkit.v1_15_R1.util.CraftMagicNumbers;
+import org.bukkit.craftbukkit.v1_16_R3.util.CraftMagicNumbers;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;

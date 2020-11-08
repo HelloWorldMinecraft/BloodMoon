@@ -1,16 +1,16 @@
 package uk.co.jacekk.bukkit.bloodmoon.feature.mob;
 
-import net.minecraft.server.v1_15_R1.*;
+import net.minecraft.server.v1_16_R3.*;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.CreatureSpawner;
-import org.bukkit.craftbukkit.v1_15_R1.block.CraftBlockState;
-import org.bukkit.craftbukkit.v1_15_R1.block.CraftCreatureSpawner;
-import org.bukkit.craftbukkit.v1_15_R1.block.data.CraftBlockData;
-import org.bukkit.craftbukkit.v1_15_R1.entity.CraftFallingBlock;
-import org.bukkit.craftbukkit.v1_15_R1.persistence.CraftPersistentDataContainer;
-import org.bukkit.craftbukkit.v1_15_R1.util.CraftMagicNumbers;
+import org.bukkit.craftbukkit.v1_16_R3.block.CraftBlockState;
+import org.bukkit.craftbukkit.v1_16_R3.block.CraftCreatureSpawner;
+import org.bukkit.craftbukkit.v1_16_R3.block.data.CraftBlockData;
+import org.bukkit.craftbukkit.v1_16_R3.entity.CraftFallingBlock;
+import org.bukkit.craftbukkit.v1_16_R3.persistence.CraftPersistentDataContainer;
+import org.bukkit.craftbukkit.v1_16_R3.util.CraftMagicNumbers;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.minecart.SpawnerMinecart;

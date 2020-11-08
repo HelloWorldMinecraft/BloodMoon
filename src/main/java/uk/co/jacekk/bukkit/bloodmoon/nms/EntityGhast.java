@@ -1,8 +1,8 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
-import net.minecraft.server.v1_15_R1.EntityTypes;
-import net.minecraft.server.v1_15_R1.GenericAttributes;
-import net.minecraft.server.v1_15_R1.World;
+import net.minecraft.server.v1_16_R3.EntityTypes;
+import net.minecraft.server.v1_16_R3.GenericAttributes;
+import net.minecraft.server.v1_16_R3.World;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
@@ -10,7 +10,7 @@ import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityGhast;
 import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityLiving;
 import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityType;
 
-public class EntityGhast extends net.minecraft.server.v1_15_R1.EntityGhast {
+public class EntityGhast extends net.minecraft.server.v1_16_R3.EntityGhast {
 
     private BloodMoon plugin;
     private BloodMoonEntityLiving bloodMoonEntity;
@@ -29,9 +29,7 @@ public class EntityGhast extends net.minecraft.server.v1_15_R1.EntityGhast {
         this.bloodMoonEntity = new BloodMoonEntityGhast(this.plugin, this, BloodMoonEntityType.GHAST);
     }
 
-    @Override
     protected void initAttributes() {
-        super.initAttributes();
         this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(200.0D);
     }
 

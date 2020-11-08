@@ -4,8 +4,8 @@ import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.List;
 
-import net.minecraft.server.v1_15_R1.*;
-import net.minecraft.server.v1_15_R1.EntityCreeper;
+import net.minecraft.server.v1_16_R3.*;
+import net.minecraft.server.v1_16_R3.EntityCreeper;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
@@ -14,12 +14,12 @@ import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityLiving;
 import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityType;
 
 //public class EntitySkeleton {
-public class EntitySkeleton extends net.minecraft.server.v1_15_R1.EntitySkeleton implements IRangedEntity {
+public class EntitySkeleton extends net.minecraft.server.v1_16_R3.EntitySkeleton implements IRangedEntity {
 
     private BloodMoon plugin;
     private BloodMoonEntityLiving bloodMoonEntity;
 
-    public EntitySkeleton(net.minecraft.server.v1_15_R1.World world) {
+    public EntitySkeleton(net.minecraft.server.v1_16_R3.World world) {
         super(EntityTypes.SKELETON, world);
 
         Plugin gPlugin = Bukkit.getPluginManager().getPlugin("BloodMoon");
@@ -42,12 +42,10 @@ public class EntitySkeleton extends net.minecraft.server.v1_15_R1.EntitySkeleton
         this.targetSelector.a(1, new PathfinderGoalHurtByTarget(this, new Class[0]));
         this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityHuman.class, true));
         this.targetSelector.a(3, new PathfinderGoalNearestAttackableTarget(this, EntityIronGolem.class, true));
-        this.targetSelector.a(3, new PathfinderGoalNearestAttackableTarget(this, EntityTurtle.class, 10, true, false, EntityTurtle.bw));
+        this.targetSelector.a(3, new PathfinderGoalNearestAttackableTarget(this, EntityTurtle.class, 10, true, false, EntityTurtle.bo));
     }
 
-    @Override
     protected void initAttributes() {
-        super.initAttributes();
         this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(70D);
         this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.35D);
         this.getAttributeInstance(GenericAttributes.ARMOR).setValue(2.0D);

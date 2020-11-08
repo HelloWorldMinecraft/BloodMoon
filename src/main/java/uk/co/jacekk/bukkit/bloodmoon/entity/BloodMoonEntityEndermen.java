@@ -1,7 +1,7 @@
 package uk.co.jacekk.bukkit.bloodmoon.entity;
 
-import net.minecraft.server.v1_15_R1.EntityHuman;
-import net.minecraft.server.v1_15_R1.EntityMonster;
+import net.minecraft.server.v1_16_R3.EntityHuman;
+import net.minecraft.server.v1_16_R3.EntityMonster;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
@@ -13,7 +13,7 @@ public class BloodMoonEntityEndermen extends BloodMoonEntityMonster {
 
     @Override
     public void onTick() {
-        if (nmsEntity.getGoalTarget() instanceof EntityHuman && nmsEntity.world.getTime() % 20 == 0 && nmsEntity.world.worldData.getName().equals(nmsEntity.getGoalTarget().world.worldData.getName())) {
+        if (nmsEntity.getGoalTarget() instanceof EntityHuman && nmsEntity.world.getTime() % 20 == 0 && nmsEntity.world == nmsEntity.getGoalTarget().world) {
             Block[] blocks = new Block[3];
 
             blocks[0] = this.getBreakableTargetBlock();

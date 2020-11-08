@@ -3,9 +3,9 @@ package uk.co.jacekk.bukkit.bloodmoon.feature.mob;
 import java.util.Random;
 import java.util.logging.Level;
 
-import net.minecraft.server.v1_15_R1.EnchantmentManager;
+import net.minecraft.server.v1_16_R3.EnchantmentManager;
 import org.bukkit.Material;
-import org.bukkit.craftbukkit.v1_15_R1.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.EventHandler;

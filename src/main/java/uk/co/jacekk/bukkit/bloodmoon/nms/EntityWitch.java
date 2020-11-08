@@ -1,15 +1,15 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
-import net.minecraft.server.v1_15_R1.EntityTypes;
-import net.minecraft.server.v1_15_R1.GenericAttributes;
-import net.minecraft.server.v1_15_R1.World;
+import net.minecraft.server.v1_16_R3.EntityTypes;
+import net.minecraft.server.v1_16_R3.GenericAttributes;
+import net.minecraft.server.v1_16_R3.World;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
 import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityGeneric;
 import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityLiving;
 import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityType;
-public class EntityWitch extends net.minecraft.server.v1_15_R1.EntityWitch {
+public class EntityWitch extends net.minecraft.server.v1_16_R3.EntityWitch {
     private BloodMoon plugin;
     private BloodMoonEntityLiving bloodMoonEntity;
 
@@ -28,7 +28,6 @@ public class EntityWitch extends net.minecraft.server.v1_15_R1.EntityWitch {
     }
 
     protected void initAttributes() {
-        super.initAttributes();
         this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(52D);
         this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.4D);
         this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(70D);

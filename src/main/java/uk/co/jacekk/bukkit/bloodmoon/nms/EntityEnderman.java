@@ -1,12 +1,12 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
-import net.minecraft.server.v1_15_R1.*;
+import net.minecraft.server.v1_16_R3.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
 import uk.co.jacekk.bukkit.bloodmoon.entity.*;
 
-public class EntityEnderman extends net.minecraft.server.v1_15_R1.EntityEnderman {
+public class EntityEnderman extends net.minecraft.server.v1_16_R3.EntityEnderman {
 
 
     private BloodMoon plugin;
@@ -32,9 +32,7 @@ public class EntityEnderman extends net.minecraft.server.v1_15_R1.EntityEnderman
         this.targetSelector.a(0, new PathfinderGoalNearestAttackableTarget(this, EntityPlayer.class, true));
     }
 
-    @Override
     protected void initAttributes() {
-        super.initAttributes();
         this.getAttributeInstance(GenericAttributes.MAX_HEALTH).setValue(30.0D);
         this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.3D);
         this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(2.0D);

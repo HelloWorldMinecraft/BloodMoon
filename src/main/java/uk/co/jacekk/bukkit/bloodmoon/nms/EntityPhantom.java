@@ -1,6 +1,6 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
-import net.minecraft.server.v1_15_R1.*;
+import net.minecraft.server.v1_16_R3.*;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
@@ -11,7 +11,7 @@ import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityType;
 import java.lang.reflect.Field;
 import java.util.Collection;
 
-public class EntityPhantom extends net.minecraft.server.v1_15_R1.EntityPhantom {
+public class EntityPhantom extends net.minecraft.server.v1_16_R3.EntityPhantom {
     private BloodMoon plugin;
     private BloodMoonEntityLiving bloodMoonEntity;
 
@@ -30,7 +30,6 @@ public class EntityPhantom extends net.minecraft.server.v1_15_R1.EntityPhantom {
     }
 
     protected void initAttributes() {
-        super.initAttributes();
         this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(100D);
         this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.6D);
         this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(6.0D);

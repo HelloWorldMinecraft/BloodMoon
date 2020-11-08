@@ -3,10 +3,11 @@ package uk.co.jacekk.bukkit.bloodmoon.entity;
 import java.util.Random;
 import java.util.UUID;
 
-import net.minecraft.server.v1_15_R1.*;
+import net.minecraft.server.v1_16_R3.*;
 import org.bukkit.Location;
 import org.bukkit.World;
 
+import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 
@@ -39,7 +40,7 @@ public abstract class BloodMoonEntityLiving {
     }
 
     public void setFollowRangeMultiplier(double multiplier) {
-        AttributeInstance attributes = this.nmsEntity.getAttributeInstance(GenericAttributes.FOLLOW_RANGE);
+        AttributeModifiable attributes = this.nmsEntity.getAttributeInstance(GenericAttributes.FOLLOW_RANGE);
         AttributeModifier modifier = new AttributeModifier(followRangeUID, "BloodMoon follow range multiplier", multiplier, AttributeModifier.Operation.MULTIPLY_BASE);
 
         attributes.removeModifier(modifier);
@@ -48,7 +49,7 @@ public abstract class BloodMoonEntityLiving {
 
     public void setSpeedMultiplier(double multiplier) {
         try {
-            AttributeInstance theAttribute = this.nmsEntity.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED);
+            AttributeModifiable theAttribute = this.nmsEntity.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED);
             if (theAttribute == null) {
                 System.err.println("That was null, wierd");
                 return;

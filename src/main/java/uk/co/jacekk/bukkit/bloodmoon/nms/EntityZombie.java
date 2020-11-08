@@ -1,8 +1,8 @@
 package uk.co.jacekk.bukkit.bloodmoon.nms;
 
-import net.minecraft.server.v1_15_R1.*;
+import net.minecraft.server.v1_16_R3.*;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_15_R1.block.CraftEnchantingTable;
+import org.bukkit.craftbukkit.v1_16_R3.block.CraftEnchantingTable;
 import org.bukkit.plugin.Plugin;
 import uk.co.jacekk.bukkit.bloodmoon.BloodMoon;
 import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityGeneric;
@@ -12,7 +12,7 @@ import uk.co.jacekk.bukkit.bloodmoon.entity.BloodMoonEntityType;
 import java.lang.reflect.Field;
 import java.util.Collection;
 
-public class EntityZombie extends net.minecraft.server.v1_15_R1.EntityZombie {
+public class EntityZombie extends net.minecraft.server.v1_16_R3.EntityZombie {
     private BloodMoon plugin;
     private BloodMoonEntityLiving bloodMoonEntity;
 
@@ -31,7 +31,6 @@ public class EntityZombie extends net.minecraft.server.v1_15_R1.EntityZombie {
     }
 
     protected void initAttributes() {
-        super.initAttributes();
         this.getAttributeInstance(GenericAttributes.FOLLOW_RANGE).setValue(100D);
         this.getAttributeInstance(GenericAttributes.MOVEMENT_SPEED).setValue(0.3D);
         this.getAttributeInstance(GenericAttributes.ATTACK_DAMAGE).setValue(4.0D);
@@ -46,7 +45,7 @@ public class EntityZombie extends net.minecraft.server.v1_15_R1.EntityZombie {
         this.goalSelector.a(8, new PathfinderGoalLookAtPlayer(this, EntityHuman.class, 8.0F));
         this.goalSelector.a(8, new PathfinderGoalRandomLookaround(this));
         this.goalSelector.a(2, new PathfinderGoalZombieAttack(this, 1.0D, false));
-        this.goalSelector.a(6, new PathfinderGoalMoveThroughVillage(this, 1.0D, true, 4, this::ey));
+        this.goalSelector.a(6, new PathfinderGoalMoveThroughVillage(this, 1.0D, true, 4, this::eU));
         this.goalSelector.a(7, new PathfinderGoalRandomStrollLand(this, 1.0D));
         this.targetSelector.a(1, (new PathfinderGoalHurtByTarget(this, new Class[0])).a(new Class[]{EntityPigZombie.class}));
         this.targetSelector.a(2, new PathfinderGoalNearestAttackableTarget(this, EntityPlayer.class, true));
